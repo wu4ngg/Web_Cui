@@ -1,0 +1,26 @@
+﻿@model SpaceCourse.Models.Follower
+
+    @using (Html.BeginForm("Follow", "CoursePage", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                if (Model == null)
+                {
+
+
+                <div class="page_info_content">
+                        <input type="button" class="info_content_btn" value="Hủy theo dõi" onclick="makevisible('confirm')">
+                        <div></div>
+                    </div>  
+                }
+                else
+                {
+    
+                    <div class="page_info_content">
+                        @Html.HiddenFor(m => m.id_user)
+                        @Html.HiddenFor(m => m.id_course)
+                        <input type="submit" class="info_content_btn" value="Theo dõi">
+                        <div></div>
+                    </div>
+                }
+            }
+
+

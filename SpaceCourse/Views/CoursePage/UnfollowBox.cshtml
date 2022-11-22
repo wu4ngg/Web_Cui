@@ -1,0 +1,31 @@
+﻿@model SpaceCourse.Models.Follower
+<style>
+</style>
+@if (Model == null)
+{
+    return;
+}
+<div class="register-main" id="confirm">
+    <div class="register-wrap">
+        @using (Html.BeginForm("Unfollow", "CoursePage", new { id = Model.id_course, user = Model.id_user }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div class="wrap-right">
+                @Html.HiddenFor(m => m.id_course)
+                @Html.HiddenFor(m => m.id_user)
+                <h1>Hủy theo dõi</h1>
+                <p>Khi bạn hủy theo dõi, bạn sẽ không thể nhận được các thông báo về khóa học này, cũng như không thể truy cập nhanh và làm bài kiểm tra định kỳ.</p>
+            </div>
+            <div class="btn_wrapper">
+                <div class="action_wrapper">
+                    <div class="btn_actions">
+                        <input type="submit" class="btn_createacc danger" value="Hủy theo dõi" />
+                    </div>
+                    <div class="btn_actions">
+                        <input type="button" class="btn_createacc" value="Đóng" onclick="makeinvis('confirm')" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div></div>
+</div>
